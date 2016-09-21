@@ -6,12 +6,10 @@ const koa = require('koa'),
 let   news = []; 
 
 
-app.use(function *(){
-  request ('http://lenta.ru', (error, response, html) => {
+request ('http://lenta.ru', (error, response, html) => {
   if (!error && response.statusCode == 200) {
     const $ = cheerio.load(html);
-    console.log('oy');
-    $('.b-yellow-box .item').each(function(i, element){
+     $('.b-yellow-box .item').each(function(i, element){
       let newsContainer = $(this).find('a');
       
       news[i] = {
@@ -26,7 +24,6 @@ app.use(function *(){
     console.error(response.statusCode);
   };
 });
-});
 
 
 app.use(handlebars ({
@@ -35,11 +32,9 @@ app.use(handlebars ({
 
 
 app.use(function *() { 
-  console.log(news[0])
   yield this.render("index", {
     title: "Новости",
-    time: news[0].time,
-    news: news[0].header
+    news: news
   });
 });
 
