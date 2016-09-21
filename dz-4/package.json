@@ -1,0 +1,17 @@
+{
+  "name": "koa-news",
+  "version": "1.0.0",
+  "description": "Koa News Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleg Bashkin",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "koa": "^1.2.4",
+    "koa-handlebars": "^0.5.7",
+    "request": "^2.75.0"
+  }
+}
